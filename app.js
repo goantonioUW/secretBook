@@ -25,8 +25,6 @@ const userSchema = new mongoose.Schema ({
     password: String
 });
 
-// removed this and added it to the env const secret = "Thisisoursecret.";
-
 userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ["password"]});
 
 const User = new mongoose.model("User", userSchema);
